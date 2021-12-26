@@ -9,7 +9,7 @@ namespace ConsoleApp1
         {
             var da = new DataReceive();
             var bp = da.GetEmployees();
-            Console.WriteLine(bp[0].Name);
+            Console.WriteLine(bp[0].Name); 
         }
     }
 }
