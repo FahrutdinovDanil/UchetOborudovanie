@@ -21,12 +21,10 @@ namespace WpfUchet.Pages
     /// </summary>
     public partial class Employee_menu : Page
     {
-        public DataReceive dataReceive { get; set; }
         public List<Equipment_failure> failure { get; set; }
         public Employee_menu()
         {
-            dataReceive = new DataReceive();
-            failure = dataReceive.GetFailure();
+            failure = DataReceive.GetFailures();
             this.DataContext = this;
             InitializeComponent();
         }
@@ -45,10 +43,11 @@ namespace WpfUchet.Pages
             {
                 DateTime Date_inspection = DateTime.Now;
                 string Result = Solution.Text;
-                int Id_equipment = dataReceive.GetEquipment(btnEquipment.Content.ToString()).Id_equipment;
+                int Id_equipment = DataReceive.GetEquipment(btnEquipment.Content.ToString()).Id_equipment;
                 bool Done = true;
                 string Status = (Status_State.SelectedItem as Equipment_failure).Reason;
-                if (dataReceive.AddNewTechnical_inspection(Date_inspection, Result,/* int newId_employee*/ Id_equipment, Done, Status))
+
+                if (DataReceive.AddNewTechnical_inspections(Date_inspection, Result,/* int newId_employee*/ Id_equipment, Done, Status))
                 {
                     NavigationService.GoBack();
                 }

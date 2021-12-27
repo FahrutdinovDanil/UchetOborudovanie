@@ -22,13 +22,11 @@ namespace WpfUchet
     {
         public List<Equipment> equipments { get; set; }
         public List<Production_plot> plots { get; set; }
-        public DataReceive dataReceive { get; set; }
         
         public WindowEquipment()
         {
             InitializeComponent();
-            dataReceive = new DataReceive();
-            plots = dataReceive.GetPlots();
+            plots = DataReceive.GetPlots();
             this.DataContext = this;
         }
 
@@ -40,7 +38,7 @@ namespace WpfUchet
         private void cbPlotTypeSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             var t = cbPlotType.SelectedItem as Production_plot;
-            equipments = dataReceive.GetEquipments(t.Id_plot);
+            equipments = DataReceive.GetEquipments(t.Id_plot);
             lvEquipments.ItemsSource = equipments;
         }
     }

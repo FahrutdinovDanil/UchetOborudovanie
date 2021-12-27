@@ -69,9 +69,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="bd_connection.cs" />
-    <Compile Include="Breakdown_during_inspection.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
     <Compile Include="Class1.cs" />
     <Compile Include="DataReceive.cs" />
     <Compile Include="Employee.cs">

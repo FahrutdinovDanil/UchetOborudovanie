@@ -4,17 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Equipment_failure_accountingModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityType Name="Breakdown_during_inspection">
-          <Key>
-            <PropertyRef Name="Id_breaking" />
-          </Key>
-          <Property Name="Id_breaking" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Date_breaking" Type="datetime" />
-          <Property Name="Id_inspection" Type="int" />
-          <Property Name="Id_employee" Type="int" />
-          <Property Name="Status" Type="varchar" MaxLength="50" />
-        </EntityType>
+    <Schema Namespace="Equipment_failure_accountingModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Employee">
           <Key>
             <PropertyRef Name="Id_employee" />
@@ -94,30 +84,6 @@
           <Property Name="Name_company" Type="varchar" MaxLength="50" />
           <Property Name="Id_plot" Type="int" />
         </EntityType>
-        <Association Name="FK_Breakdown_during_inspection_Employee">
-          <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
-          <End Role="Breakdown_during_inspection" Type="Self.Breakdown_during_inspection" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Employee">
-              <PropertyRef Name="Id_employee" />
-            </Principal>
-            <Dependent Role="Breakdown_during_inspection">
-              <PropertyRef Name="Id_employee" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Breakdown_during_inspection_Technical_inspection">
-          <End Role="Technical_inspection" Type="Self.Technical_inspection" Multiplicity="0..1" />
-          <End Role="Breakdown_during_inspection" Type="Self.Breakdown_during_inspection" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Technical_inspection">
-              <PropertyRef Name="Id_inspection" />
-            </Principal>
-            <Dependent Role="Breakdown_during_inspection">
-              <PropertyRef Name="Id_inspection" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Empl_Role">
           <End Role="Position" Type="Self.Position" Multiplicity="0..1" />
           <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
@@ -191,7 +157,6 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="Equipment_failure_accountingModelStoreContainer">
-          <EntitySet Name="Breakdown_during_inspection" EntityType="Self.Breakdown_during_inspection" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Employee" EntityType="Self.Employee" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Equipment" EntityType="Self.Equipment" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Equipment_failure" EntityType="Self.Equipment_failure" Schema="dbo" store:Type="Tables" />
@@ -201,14 +166,6 @@
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Technical_inspection" EntityType="Self.Technical_inspection" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Сompany" EntityType="Self.Сompany" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK_Breakdown_during_inspection_Employee" Association="Self.FK_Breakdown_during_inspection_Employee">
-            <End Role="Employee" EntitySet="Employee" />
-            <End Role="Breakdown_during_inspection" EntitySet="Breakdown_during_inspection" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Breakdown_during_inspection_Technical_inspection" Association="Self.FK_Breakdown_during_inspection_Technical_inspection">
-            <End Role="Technical_inspection" EntitySet="Technical_inspection" />
-            <End Role="Breakdown_during_inspection" EntitySet="Breakdown_during_inspection" />
-          </AssociationSet>
           <AssociationSet Name="FK_Empl_Role" Association="Self.FK_Empl_Role">
             <End Role="Position" EntitySet="Position" />
             <End Role="Employee" EntitySet="Employee" />
@@ -234,23 +191,10 @@
             <End Role="Сompany" EntitySet="Сompany" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="Equipment_failure_accountingModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="Breakdown_during_inspection">
-          <Key>
-            <PropertyRef Name="Id_breaking" />
-          </Key>
-          <Property Name="Id_breaking" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Date_breaking" Type="DateTime" Precision="3" />
-          <Property Name="Id_inspection" Type="Int32" />
-          <Property Name="Id_employee" Type="Int32" />
-          <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Employee" Relationship="Self.FK_Breakdown_during_inspection_Employee" FromRole="Breakdown_during_inspection" ToRole="Employee" />
-          <NavigationProperty Name="Technical_inspection" Relationship="Self.FK_Breakdown_during_inspection_Technical_inspection" FromRole="Breakdown_during_inspection" ToRole="Technical_inspection" />
-        </EntityType>
         <EntityType Name="Employee">
           <Key>
             <PropertyRef Name="Id_employee" />
@@ -262,7 +206,6 @@
           <Property Name="Id_position" Type="Int32" />
           <Property Name="Login" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Breakdown_during_inspection" Relationship="Self.FK_Breakdown_during_inspection_Employee" FromRole="Employee" ToRole="Breakdown_during_inspection" />
           <NavigationProperty Name="Position" Relationship="Self.FK_Empl_Role" FromRole="Employee" ToRole="Position" />
           <NavigationProperty Name="Technical_inspection" Relationship="Self.FK_Technical_inspection_Employee" FromRole="Employee" ToRole="Technical_inspection" />
         </EntityType>
@@ -331,7 +274,6 @@
           <Property Name="Id_equipment" Type="Int32" />
           <Property Name="Done" Type="Boolean" />
           <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Breakdown_during_inspection" Relationship="Self.FK_Breakdown_during_inspection_Technical_inspection" FromRole="Technical_inspection" ToRole="Breakdown_during_inspection" />
           <NavigationProperty Name="Employee" Relationship="Self.FK_Technical_inspection_Employee" FromRole="Technical_inspection" ToRole="Employee" />
           <NavigationProperty Name="Equipment" Relationship="Self.FK_Technical_inspection_Equipment" FromRole="Technical_inspection" ToRole="Equipment" />
         </EntityType>
@@ -344,30 +286,6 @@
           <Property Name="Id_plot" Type="Int32" />
           <NavigationProperty Name="Production_plot" Relationship="Self.FK_Сompany_Production_plot" FromRole="Сompany" ToRole="Production_plot" />
         </EntityType>
-        <Association Name="FK_Breakdown_during_inspection_Employee">
-          <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
-          <End Role="Breakdown_during_inspection" Type="Self.Breakdown_during_inspection" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Employee">
-              <PropertyRef Name="Id_employee" />
-            </Principal>
-            <Dependent Role="Breakdown_during_inspection">
-              <PropertyRef Name="Id_employee" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Breakdown_during_inspection_Technical_inspection">
-          <End Role="Technical_inspection" Type="Self.Technical_inspection" Multiplicity="0..1" />
-          <End Role="Breakdown_during_inspection" Type="Self.Breakdown_during_inspection" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Technical_inspection">
-              <PropertyRef Name="Id_inspection" />
-            </Principal>
-            <Dependent Role="Breakdown_during_inspection">
-              <PropertyRef Name="Id_inspection" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Empl_Role">
           <End Role="Position" Type="Self.Position" Multiplicity="0..1" />
           <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
@@ -441,7 +359,6 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="UchetEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Breakdown_during_inspection" EntityType="Self.Breakdown_during_inspection" />
           <EntitySet Name="Employee" EntityType="Self.Employee" />
           <EntitySet Name="Equipment" EntityType="Self.Equipment" />
           <EntitySet Name="Equipment_failure" EntityType="Self.Equipment_failure" />
@@ -451,14 +368,6 @@
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
           <EntitySet Name="Technical_inspection" EntityType="Self.Technical_inspection" />
           <EntitySet Name="Сompany" EntityType="Self.Сompany" />
-          <AssociationSet Name="FK_Breakdown_during_inspection_Employee" Association="Self.FK_Breakdown_during_inspection_Employee">
-            <End Role="Employee" EntitySet="Employee" />
-            <End Role="Breakdown_during_inspection" EntitySet="Breakdown_during_inspection" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Breakdown_during_inspection_Technical_inspection" Association="Self.FK_Breakdown_during_inspection_Technical_inspection">
-            <End Role="Technical_inspection" EntitySet="Technical_inspection" />
-            <End Role="Breakdown_during_inspection" EntitySet="Breakdown_during_inspection" />
-          </AssociationSet>
           <AssociationSet Name="FK_Empl_Role" Association="Self.FK_Empl_Role">
             <End Role="Position" EntitySet="Position" />
             <End Role="Employee" EntitySet="Employee" />
@@ -490,17 +399,6 @@
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="Equipment_failure_accountingModelStoreContainer" CdmEntityContainer="UchetEntities">
-          <EntitySetMapping Name="Breakdown_during_inspection">
-            <EntityTypeMapping TypeName="Equipment_failure_accountingModel.Breakdown_during_inspection">
-              <MappingFragment StoreEntitySet="Breakdown_during_inspection">
-                <ScalarProperty Name="Id_breaking" ColumnName="Id_breaking" />
-                <ScalarProperty Name="Date_breaking" ColumnName="Date_breaking" />
-                <ScalarProperty Name="Id_inspection" ColumnName="Id_inspection" />
-                <ScalarProperty Name="Id_employee" ColumnName="Id_employee" />
-                <ScalarProperty Name="Status" ColumnName="Status" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Employee">
             <EntityTypeMapping TypeName="Equipment_failure_accountingModel.Employee">
               <MappingFragment StoreEntitySet="Employee">

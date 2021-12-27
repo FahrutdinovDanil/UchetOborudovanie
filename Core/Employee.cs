@@ -17,7 +17,6 @@ namespace Core
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Employee()
         {
-            this.Breakdown_during_inspection = new HashSet<Breakdown_during_inspection>();
             this.Technical_inspection = new HashSet<Technical_inspection>();
         }
     
@@ -29,8 +28,6 @@ namespace Core
         public string Login { get; set; }
         public string Password { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Breakdown_during_inspection> Breakdown_during_inspection { get; set; }
         public virtual Position Position { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Technical_inspection> Technical_inspection { get; set; }

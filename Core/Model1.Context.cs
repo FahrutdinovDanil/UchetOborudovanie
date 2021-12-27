@@ -25,7 +25,6 @@ namespace Core
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Breakdown_during_inspection> Breakdown_during_inspection { get; set; }
         public virtual DbSet<Employee> Employee { get; set; }
         public virtual DbSet<Equipment> Equipment { get; set; }
         public virtual DbSet<Equipment_failure> Equipment_failure { get; set; }
