@@ -11,7 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleApp1", "ConsoleApp1\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfUchet", "WpfUchet\WpfUchet.csproj", "{CB0CC081-4D63-47C5-B42C-51F2C9763D3B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiUchet", "ApiUchet\ApiUchet.csproj", "{48CBFEA4-895C-45EC-901F-AAD43AAC83C7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApiUchet", "ApiUchet\ApiUchet.csproj", "{48CBFEA4-895C-45EC-901F-AAD43AAC83C7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

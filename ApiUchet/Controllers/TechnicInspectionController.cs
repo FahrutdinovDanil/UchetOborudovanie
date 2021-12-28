@@ -28,6 +28,30 @@ namespace ApiUchet.Controllers
             return result;
         }
 
+
+        [HttpPut("{id_inspection}")]
+        public IActionResult Update(int id_inspection, Technical_inspection inspection)
+        {
+            var result = DataReceive.GetTechnical_inspection(id_inspection);
+            if (result == null)
+                return NotFound();
+
+            DataReceive.UpdateInspection(id_inspection, inspection);
+
+            return NoContent();
+        }
+
+        [HttpDelete("{id_inspection}")]
+        public IActionResult Delete(int id_inspection)
+        {
+            var result = DataReceive.GetTechnical_inspection(id_inspection);
+            if (result == null)
+                return NotFound();
+
+            DataReceive.DeleteInspection(result);
+            return NoContent();
+        }
+
         [HttpPost]
         public IActionResult Create(Technical_inspection inspection)
         {

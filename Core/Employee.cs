@@ -14,12 +14,6 @@ namespace Core
     
     public partial class Employee
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Employee()
-        {
-            this.Technical_inspection = new HashSet<Technical_inspection>();
-        }
-    
         public int Id_employee { get; set; }
         public string Name { get; set; }
         public string Surname { get; set; }
@@ -29,7 +23,5 @@ namespace Core
         public string Password { get; set; }
     
         public virtual Position Position { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Technical_inspection> Technical_inspection { get; set; }
     }
 }

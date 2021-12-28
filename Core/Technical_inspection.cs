@@ -17,12 +17,11 @@ namespace Core
         public int Id_inspection { get; set; }
         public Nullable<System.DateTime> Date_inspection { get; set; }
         public string Result { get; set; }
-        public Nullable<int> Id_employee { get; set; }
         public Nullable<int> Id_equipment { get; set; }
         public Nullable<bool> Done { get; set; }
         public string Status { get; set; }
+        public string Employee_name { get; set; }
     
-        public virtual Employee Employee { get; set; }
         public virtual Equipment Equipment { get; set; }
     }
 }

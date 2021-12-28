@@ -30,11 +30,10 @@
         </Grid.RowDefinitions>
         <TextBlock Text="Технический осмотр" FontSize="28" Grid.Column="1" Grid.ColumnSpan="4" TextAlignment="Center" Margin="10,10,10,10"/>
         <TextBlock Grid.Row="1" FontSize="18" Margin="10,10,5,10"><Run Text="Номер "/><Run Text="оборудования"/></TextBlock>
-        <Button x:Name="btnEquipment" Content="Choose Equipment"  Grid.Row="1" Grid.Column="1" Click="btnEquipmentClick"/>
+        <Button x:Name="btnEquipment" Content="Choose Equipment"  Grid.Row="1" Grid.Column="1" Click="btnEquipmentClick" Grid.ColumnSpan="2" Margin="0,11,200,12"/>
         <TextBlock Text="Описание" Grid.Row="3" FontSize="18" Margin="10,10,10,10"/>
         <TextBox x:Name="Solution" Grid.Row="3" Grid.Column="1" FontSize="36" Margin="10,14,86,15" Grid.ColumnSpan="3" />
-        <Button x:Name="EndRepair" Grid.Row="6" Content="Выполнить осмотр" Margin="65,32,39,7" Width="230" Height="50" FontSize="18" Click="PerformInspection_Click" Grid.ColumnSpan="2" />
-        <Button x:Name="Backcl" Click="Back" Grid.Column="4" Grid.Row="6" Margin="20,32,30,7"  Width="200" Height="50" FontSize="18" Content="Назад"/>
+        <Button x:Name="EndRepair" Grid.Row="6" Content="Выполнить осмотр" Margin="10,37,5,2" Height="50" FontSize="18" Click="PerformInspection_Click" Grid.Column="1" />
         <TextBlock x:Name="State" Text="Статус" Grid.Row="2" FontSize="18" Margin="16,3,4,18" Grid.Column="0"/>
         <ComboBox x:Name="Status_State" Grid.Row="2" Grid.Column="1" Width="280" Height="60" Margin="10,18,210,11" FontSize="28" ItemsSource="{Binding failure}" Grid.ColumnSpan="2">
             <ComboBox.ItemTemplate>
@@ -43,10 +42,8 @@
                 </DataTemplate>
             </ComboBox.ItemTemplate>
         </ComboBox>
-        <CheckBox x:Name="check_box" IsChecked="False" Content="" Grid.Column="1" HorizontalAlignment="Left" Margin="25,25,0,0" Grid.Row="4" FontSize="18" VerticalAlignment="Top" Width="15" Height="15" RenderTransformOrigin="1.667,0.333"/>
-        <TextBlock HorizontalAlignment="Left" Margin="15,14,0,0" Grid.Row="4" TextWrapping="Wrap" FontSize="18" Text="Сломался во время осмотра" VerticalAlignment="Top" Width="240" Grid.ColumnSpan="2"/>
-        <Button Content="Посмотреть оборудование" FontSize="18" Grid.Column="2" HorizontalAlignment="Left" Margin="56,31,0,0" Grid.Row="6" VerticalAlignment="Top" Width="230" Height="50" Grid.ColumnSpan="2" Click="ViewEquipment_Click"/>
-        <Button Content="Посмотреть Тех осмотры" FontSize="18" Grid.Column="2" HorizontalAlignment="Left" Margin="55,28,0,0" Grid.Row="7" VerticalAlignment="Top" Width="230" Height="50" Grid.ColumnSpan="2" Click="Button_Click_1"/>
-        <Button Content="Очистить" Grid.Column="4" FontSize="18" HorizontalAlignment="Left" Margin="20,28,0,0" Grid.Row="7" VerticalAlignment="Top"  Width="200" Height="50" Click="Button_Click_2"/>
+        <Button Content="Посмотреть Тех осмотры" FontSize="18" Grid.Column="3" HorizontalAlignment="Left" Margin="5,37,0,0" Grid.Row="6" VerticalAlignment="Top" Width="240" Height="50" Click="ViewInspection_Click"/>
+        <TextBox x:Name="Employee" FontSize="18" Grid.Column="1" HorizontalAlignment="Left" Height="70" Margin="10,10,0,0" Grid.Row="4" TextWrapping="Wrap" VerticalAlignment="Top" Width="485" Grid.ColumnSpan="2"/>
+        <TextBlock HorizontalAlignment="Left" FontSize="18" Margin="5,20,0,0" Grid.Row="4" TextWrapping="Wrap" Text="Сотрудник" VerticalAlignment="Top" Height="56" Width="205"/>
     </Grid>
 </Page>

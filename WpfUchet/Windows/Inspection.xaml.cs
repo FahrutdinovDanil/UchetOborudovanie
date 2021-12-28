@@ -10,19 +10,26 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Core;
 
-namespace WpfUchet
+namespace WpfUchet.Windows
 {
     /// <summary>
-    /// Interaction logic for Page_authorization.xaml
+    /// Interaction logic for Inspection.xaml
     /// </summary>
-    public partial class Employee_menu : Page
+    public partial class Inspection : Window
     {
-        public Employee_menu()
+        public List<Technical_inspection> inspections { get; set; }
+        public Inspection()
         {
             InitializeComponent();
+            inspections = DataReceive.GetTechnical_inspections();
+            lvInspection.ItemsSource = inspections;
+        }
+        private void btnBackClick(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }

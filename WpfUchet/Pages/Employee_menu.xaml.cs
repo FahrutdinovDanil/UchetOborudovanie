@@ -13,6 +13,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Core;
+using WpfUchet.Windows;
+using System.Collections.ObjectModel;
 
 namespace WpfUchet.Pages
 {
@@ -21,7 +23,7 @@ namespace WpfUchet.Pages
     /// </summary>
     public partial class Employee_menu : Page
     {
-        public List<Equipment_failure> failure { get; set; }
+        public ObservableCollection<Equipment_failure> failure { get; set; }
         public Employee_menu()
         {
             failure = DataReceive.GetFailures();
@@ -44,10 +46,11 @@ namespace WpfUchet.Pages
                 DateTime Date_inspection = DateTime.Now;
                 string Result = Solution.Text;
                 int Id_equipment = DataReceive.GetEquipment(btnEquipment.Content.ToString()).Id_equipment;
+                string Employee_name = Employee.Text;
                 bool Done = true;
                 string Status = (Status_State.SelectedItem as Equipment_failure).Reason;
 
-                if (DataReceive.AddNewTechnical_inspections(Date_inspection, Result,/* int newId_employee*/ Id_equipment, Done, Status))
+                if (DataReceive.AddNewTechnical_inspection(Date_inspection, Result, Employee_name, Id_equipment, Done, Status))
                 {
                     NavigationService.GoBack();
                 }
@@ -57,24 +60,16 @@ namespace WpfUchet.Pages
                 
             }
         }
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void Back(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void Button_Click_2(object sender, RoutedEventArgs e)
-        {
-
-        }
 
         private void ViewEquipment_Click(object sender, RoutedEventArgs e)
         {
             WindowEquipment window = new WindowEquipment();
+            window.Show();
+        }
+
+        private void ViewInspection_Click(object sender, RoutedEventArgs e)
+        {
+            Inspection window = new Inspection();
             window.Show();
         }
     }

@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Core;
+using System.Collections.ObjectModel;
 
 namespace WpfUchet
 {
@@ -21,7 +22,7 @@ namespace WpfUchet
     public partial class WindowEquipment : Window
     {
         public List<Equipment> equipments { get; set; }
-        public List<Production_plot> plots { get; set; }
+        public ObservableCollection<Production_plot> plots { get; set; }
         
         public WindowEquipment()
         {

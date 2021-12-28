@@ -28,27 +28,27 @@ namespace ApiUchet.Controllers
             return result;
         }
 
-        [HttpPut("{id_equipment}")]
-        public IActionResult Update(int id_equipment, Equipment equipment)
-        {
-            var result = DataReceive.GetEquipment(id_equipment);
-            if (result == null)
-                return NotFound();
+        //[HttpPut("{id_equipment}")]
+        //public IActionResult Update(int id_equipment, Equipment equipment)
+        //{
+        //    var result = DataReceive.GetEquipment(id_equipment);
+        //    if (result == null)
+        //        return NotFound();
 
-            DataReceive.UpdateEquipment(id_equipment, equipment);
+        //    DataReceive.UpdateEquipment(id_equipment, equipment);
 
-            return NoContent();
-        }
+        //    return NoContent();
+        //}
 
-        [HttpDelete("{id_equipment}")]
-        public IActionResult Delete(int id_equipment)
-        {
-            var result = DataReceive.GetEquipment(id_equipment);
-            if (result == null)
-                return NotFound();
+        //[HttpDelete("{id_equipment}")]
+        //public IActionResult Delete(int id_equipment)
+        //{
+        //    var result = DataReceive.GetEquipment(id_equipment);
+        //    if (result == null)
+        //        return NotFound();
 
-            DataReceive.DeleteEquipment(result);
-            return NoContent();
-        }
+        //    DataReceive.DeleteEquipment(result);
+        //    return NoContent();
+        //}
     }
 }

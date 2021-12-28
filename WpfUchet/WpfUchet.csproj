@@ -65,6 +65,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="Windows\Inspection.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Windows\WindowEquipment.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -77,6 +81,9 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Windows\Inspection.xaml.cs">
+      <DependentUpon>Inspection.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Windows\WindowEquipment.xaml.cs">
       <DependentUpon>WindowEquipment.xaml</DependentUpon>
     </Compile>
@@ -88,17 +95,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\Page_authorization.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Pages\Employee_menu.xaml.cs">
       <DependentUpon>Employee_menu.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\Page_authorization.xaml.cs">
-      <DependentUpon>Page_authorization.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>

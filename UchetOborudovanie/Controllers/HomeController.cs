@@ -6,6 +6,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using UchetOborudovanie.Models;
+using Core;
 
 namespace UchetOborudovanie.Controllers
 {
@@ -25,7 +26,7 @@ namespace UchetOborudovanie.Controllers
 
         public IActionResult Privacy()
         {
-            return View();
+            return View(DataReceive.GetEquipments());
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
